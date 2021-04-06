@@ -6,6 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainFragmentContainer"
+    android:name="com.example.playground.UI.MainNavHostFragment"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/nav_graph"
     tools:context=".UI.MainActivity">
 
 
