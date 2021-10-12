@@ -8,46 +8,53 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.scopes.FragmentScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Named
+import javax.inject.Qualifier
 import javax.inject.Singleton
 import kotlin.random.Random
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(FragmentComponent::class)
 object AppModule {
 
-    @Singleton
+    @HelloWorld
+    @FragmentScoped
     @Provides
-    @Named("Hello World")
     fun provideHelloWorldString() : String = "Hello World"
 
-    @Singleton
+    @FragmentScoped
     @Provides
     @Named("GoodBye World")
     fun provideGoodbyeWorldString() : String = "Goodbye World"
 
-    @Singleton
+    @FragmentScoped
     @Provides
     fun provideSomeStringDependency() : String {
         return "String Dependency"
     }
 
-    @Singleton
+    @FragmentScoped
     @Provides
     fun providedependencyInterface(interfaceImpString: String) : DependencyInterface {
         return DependencyInterfaceImp(interfaceImpString)
     }
 
-    @Singleton
+    @FragmentScoped
     @Provides
     fun provideGson() : Gson {
         return Gson()
     }
 
-    @Singleton
+    @FragmentScoped
     @Provides
     fun providedependencyClass(dependencyInterfaceImpl : DependencyInterface) : DependencyClass {
         return DependencyClass(dependencyInterfaceImpl)
     }
 }
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class HelloWorld

@@ -2,6 +2,7 @@ package com.example.playground.UI
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
+import com.example.playground.DI.HelloWorld
 import com.example.playground.DependencyClass.DependencyClass
 import com.example.playground.Interface.DependencyInterface
 import javax.inject.Inject
@@ -10,7 +11,7 @@ import javax.inject.Named
 class MainFragmentFactory
     @Inject
     constructor(
-        @Named("Hello World")
+        @HelloWorld
         private val helloWorld : String,
         @Named("GoodBye World")
         private val goodByeWorld : String,

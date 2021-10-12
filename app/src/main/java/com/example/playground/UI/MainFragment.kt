@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.playground.DI.HelloWorld
 import com.example.playground.DependencyClass.DependencyClass
 import com.example.playground.Interface.DependencyInterface
 import com.example.playground.Interface.DependencyInterfaceImp
@@ -16,7 +17,9 @@ import javax.inject.Named
 
 class MainFragment
     constructor(
+        @HelloWorld
         private val helloWorld : String,
+        @Named("Goodbye World")
         private val goodByeWorld : String,
         private val dependencyInterfaceImp: DependencyInterface,
         private val dependencyClass: DependencyClass
