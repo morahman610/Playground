@@ -7,5 +7,14 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.playground.UI.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/mainToCompose"
+            app:destination="@id/composeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/composeFragment"
+        android:name="com.example.playground.UI.ComposeFragment"
+        android:label="fragment_compose"
+        tools:layout="@layout/fragment_compose" />
 </navigation>
